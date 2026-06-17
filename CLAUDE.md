@@ -16,7 +16,7 @@ The full pattern is described in [llm-wiki.md](llm-wiki.md). Read it when starti
 | `wiki/` | LLM-maintained markdown pages. You own this layer entirely. |
 | `wiki/index.md` | Content catalog — read this first when answering any query. |
 | `wiki/log.md` | Append-only chronological log of all operations. |
-| `skills/` | Claude Code skill definitions. |
+| `skills/karpathy-guidelines/` | Invoke with `/karpathy-guidelines` — behavioral guidelines for disciplined LLM work. |
 
 ## Three operations
 

@@ -2,7 +2,12 @@
 
 Append-only chronological record of all wiki operations. Each entry starts with a consistent prefix for grep-parseability.
 
-Format: `## [YYYY-MM-DD] ingest | query | lint — details`
+Format:
+```
+## [YYYY-MM-DD] ingest | Source Title
+## [YYYY-MM-DD] query | Question summary
+## [YYYY-MM-DD] lint | pass
+```
 
 ---
 

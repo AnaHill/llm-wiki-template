@@ -4,7 +4,7 @@ A template for building a personal wiki maintained by an LLM, using VS Code + [F
 
 The LLM is the programmer. The wiki is the codebase. You curate sources and ask questions; the LLM does the bookkeeping.
 
-Based on [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9английsk94f).
+Based on [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f).
 
 ---
 

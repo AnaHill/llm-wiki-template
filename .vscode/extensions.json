@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "foam.foam-vscode"
+    "foam.foam-vscode",
+    "yzhang.markdown-all-in-one"
   ]
 }

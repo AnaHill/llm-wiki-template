@@ -36,4 +36,4 @@ Content catalog for this wiki. The LLM updates this on every ingest. When answer
 
 ---
 
-*Last updated: —*
+*Last updated: 2026-06-17*
