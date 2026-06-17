@@ -1,0 +1,11 @@
+# qmd search index (generated locally, not committed)
+db/
+.qmd/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
