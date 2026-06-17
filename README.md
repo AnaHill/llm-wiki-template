@@ -32,7 +32,27 @@ That's it. The wiki grows from there.
 - **Query** — ask a question; LLM reads the wiki and synthesizes an answer
 - **Lint** — ask for a health check; LLM flags stale claims, orphans, gaps
 
+```
+ingest                                         query
+  │                                              │
+  ▼                                              ▼
+raw/ ──► wiki pages ──► wiki/index.md ──► answer with citations
+```
+
 See [llm-wiki.md](llm-wiki.md) for the full concept and [CLAUDE.md](CLAUDE.md) for the wiki schema.
+
+---
+
+## Why not just RAG?
+
+|                   | Classic RAG         | This wiki                      |
+|-------------------|---------------------|--------------------------------|
+| What's retrieved  | raw chunks          | curated wiki pages             |
+| Quality over time | flat                | compounds with each ingest     |
+| Storage           | vector DB           | markdown in git                |
+| Contradictions    | silently coexist    | surfaced by `lint`             |
+| Ownership         | vendor-specific DB  | a git repo you own             |
+| Portability       | migrate DB, reindex | `git clone` / local copy       |
 
 ---
 
