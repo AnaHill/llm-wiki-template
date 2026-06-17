@@ -10,10 +10,22 @@ Based on [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a
 
 ## Quick start
 
-1. Clone this repository.
-2. Open it in VS Code. When prompted, install the recommended extension (Foam).
-3. Open a new Claude Code session in this directory.
-4. Drop a source document into `raw/` and tell Claude: **"ingest `raw/<filename>`"**.
+### Create your wiki (recommended)
+
+Use the GitHub template to get a clean repo with no connection to this template:
+
+```bash
+gh repo create my-wiki-name --public --template AnaHill/LLM-wiki-template-with-VSCodeFoam --clone
+cd my-wiki-name
+```
+
+Or click **"Use this template"** on [github.com/AnaHill/LLM-wiki-template-with-VSCodeFoam](https://github.com/AnaHill/LLM-wiki-template-with-VSCodeFoam) and clone the result.
+
+### Then
+
+1. Open the folder in VS Code — accept the Foam extension recommendation.
+2. Open a Claude Code session in this directory.
+3. Drop a source document into `raw/` and say: **"ingest `raw/<filename>`"**.
 
 That's it. The wiki grows from there.
 
