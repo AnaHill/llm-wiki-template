@@ -1,8 +1,8 @@
-# LLM Wiki Template — VS Code Foam
+# LLM Wiki Template
 
-A template for building a personal wiki maintained by an LLM, using VS Code + [Foam](https://foambubble.github.io/foam/) as the IDE.
+A template for building a personal wiki maintained by an AI agent. The pattern works with any LLM that supports an instruction file; the reference implementation uses [Claude Code](https://claude.ai/code) and its `CLAUDE.md` convention.
 
-The LLM is the programmer. The wiki is the codebase. You curate sources and ask questions; the LLM does the bookkeeping.
+Drop a source document into `raw/`. The LLM reads it, writes a summary page, updates relevant concept and entity pages, and logs the operation. Ask questions against the wiki anytime — it synthesizes answers from everything it has read so far.
 
 Based on [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f).
 
@@ -23,9 +23,8 @@ Or click **"Use this template"** on [github.com/AnaHill/LLM-wiki-template-with-V
 
 ### Then
 
-1. Open the folder in VS Code — accept the Foam extension recommendation.
-2. Open a Claude Code session in this directory.
-3. Drop a source document into `raw/` and say: **"ingest `raw/<filename>`"**.
+1. Open the project folder and start an AI agent session in this directory.
+2. Drop a source document into `raw/` and say: **"ingest `raw/<filename>`"**.
 
 That's it. The wiki grows from there.
 
@@ -84,10 +83,34 @@ EXAMPLES.md   examples of good vs. bad LLM behavior
 
 ---
 
-## VS Code Foam tips
+## Optional: VS Code + Foam
 
-- **Graph view** (`Foam: Show Graph`) shows the shape of your wiki — hubs, orphans, clusters.
-- **Wikilinks** (`[[page-name]]`) let the LLM cross-reference pages; Foam resolves them.
+If you use VS Code as your editor, [Foam](https://foambubble.github.io/foam/) is an extension that adds graph visualization, wikilink navigation, and backlink panels on top of the wiki's markdown files. It's not required — the wiki works fine without it — but it's a nice way to explore the structure as it grows.
+
+**To set it up:**
+
+1. Install the Foam extension in VS Code: open the Extensions panel (`Ctrl+Shift+X`) and search for `foam.foam-vscode`.
+2. Optionally add Foam-specific workspace settings to `.vscode/settings.json`:
+   ```json
+   "foam.openDailyNote.onVSCodeStartup": false,
+   "foam.files.exclude": [
+     "**/.git/**",
+     "**/node_modules/**",
+     "**/out/**",
+     "raw/**"
+   ],
+   "foam.graph.style": {
+     "background": "#202020",
+     "node": {
+       "regular": { "color": "#277da1" },
+       "placeholder": { "color": "#aa5042" }
+     }
+   }
+   ```
+3. Open the graph with `Foam: Show Graph` from the Command Palette.
+
+**Key features once installed:**
+
+- **Graph view** shows the shape of your wiki — hubs, orphans, clusters.
+- **Wikilinks** (`[[page-name]]`) let the LLM cross-reference pages; Foam resolves them into clickable links.
 - **Backlinks panel** shows every page that links to the current one.
-
-Install Foam from the Extensions panel or accept the workspace recommendation prompt.
