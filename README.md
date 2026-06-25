@@ -15,11 +15,11 @@ Based on [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a
 Use the GitHub template to get a clean repo with no connection to this template:
 
 ```bash
-gh repo create my-wiki-name --public --template AnaHill/LLM-wiki-template-with-VSCodeFoam --clone
+gh repo create my-wiki-name --public --template AnaHill/llm-wiki-template --clone
 cd my-wiki-name
 ```
 
-Or click **"Use this template"** on [github.com/AnaHill/LLM-wiki-template-with-VSCodeFoam](https://github.com/AnaHill/LLM-wiki-template-with-VSCodeFoam) and clone the result.
+Or click **"Use this template"** on [github.com/AnaHill/llm-wiki-template](https://github.com/AnaHill/llm-wiki-template) and clone the result.
 
 ### Then
 
