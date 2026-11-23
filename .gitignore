@@ -9,3 +9,6 @@ Thumbs.db
 # Editor
 .idea/
 *.swp
+
+# Local agent settings
+.claude/settings.local.json

@@ -4,6 +4,7 @@ Append-only chronological record of all wiki operations. Each entry starts with 
 
 Format:
 ```
+## [YYYY-MM-DD] init | Wiki initialized
 ## [YYYY-MM-DD] ingest | Source Title
 ## [YYYY-MM-DD] query | Question summary
 ## [YYYY-MM-DD] lint | pass

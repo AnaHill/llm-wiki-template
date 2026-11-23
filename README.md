@@ -1,6 +1,6 @@
 # LLM Wiki Template
 
-A template for building a personal wiki maintained by an AI agent. The pattern works with any LLM that supports an instruction file; the reference implementation uses [Claude Code](https://claude.ai/code) and its `CLAUDE.md` convention.
+A template for building a personal wiki maintained by an AI agent. The pattern works with any LLM agent that reads an instruction file: the instructions are in `AGENTS.md` (read by Codex, Cursor and others), and `CLAUDE.md` imports it for [Claude Code](https://claude.ai/code).
 
 Drop a source document into `raw/`. The LLM reads it, writes a summary page, updates relevant concept and entity pages, and logs the operation. Ask questions against the wiki anytime — it synthesizes answers from everything it has read so far.
 
@@ -36,7 +36,7 @@ That's it. The wiki grows from there.
 |-------|------|-------------|
 | Raw sources | `raw/` | You — drop files here, never edited |
 | Wiki pages | `wiki/` | LLM — creates and maintains all pages |
-| Schema | `CLAUDE.md` | You + LLM — co-evolves over time |
+| Schema | `AGENTS.md` | You + LLM — co-evolves over time |
 
 **Three operations:**
 - **Ingest** — drop a source in `raw/`, ask the LLM to process it
@@ -50,7 +50,7 @@ ingest                                         query
 raw/ ──► wiki pages ──► wiki/index.md ──► answer with citations
 ```
 
-See [llm-wiki.md](llm-wiki.md) for the full concept and [CLAUDE.md](CLAUDE.md) for the wiki schema.
+See [llm-wiki.md](llm-wiki.md) for the full concept and [AGENTS.md](AGENTS.md) for the wiki schema.
 
 ---
 
@@ -76,16 +76,30 @@ wiki/
   log.md      append-only operation log
 skills/
   karpathy-guidelines/  behavioral guidelines for the LLM
-CLAUDE.md     wiki schema and LLM instructions
+AGENTS.md     wiki schema and LLM instructions (CLAUDE.md just imports it)
+.claude/settings.json  asks before any write to raw/ (Claude Code)
 llm-wiki.md   the pattern explained
 EXAMPLES.md   examples of good vs. bad LLM behavior
 ```
 
 ---
 
-## Optional: VS Code + Foam
+## Optional: a viewer with a graph view (Obsidian or VS Code + Foam)
 
-If you use VS Code as your editor, [Foam](https://foambubble.github.io/foam/) is an extension that adds graph visualization, wikilink navigation, and backlink panels on top of the wiki's markdown files. It's not required — the wiki works fine without it — but it's a nice way to explore the structure as it grows.
+The wiki is plain markdown, so any editor works. A viewer with a graph view and clickable `[[wikilinks]]` makes it much easier to see the shape of the wiki as it grows — hubs, orphans, clusters — and to follow what the agent changed. Two options:
+
+### Obsidian
+
+[Obsidian](https://obsidian.md/) is a free markdown app with a graph view, backlinks and search built in. Open the repository folder as a vault (**Open folder as vault**); nothing needs to be installed in the repository. Keep the agent in a terminal or in VS Code next to it.
+
+- **Graph view:** in the graph settings, filter with `path:wiki -file:index -file:log`, so that the index and the log, which link to almost everything, do not turn the graph into one star.
+- **Colour groups:** add groups in the graph settings by folder or by tag, for example `tag:#concept`, or `path:wiki/sources` if you keep source pages in a subfolder, and last `path:wiki` for the rest (a node takes the colour of the first group it matches, so the more specific groups go first). Search syntax: <https://obsidian.md/help/plugins/search>.
+- **Tags:** a `#word` in prose becomes a tag in Obsidian. Keep tags in the `tags:` front matter, and write a hash that is not meant as a tag with a backslash, `\#AB01`.
+- Obsidian writes its settings to `.obsidian/` in the folder; add it to `.gitignore` if you do not want them in the repository.
+
+### VS Code + Foam
+
+If you use VS Code as your editor, [Foam](https://foambubble.github.io/foam/) is an extension that adds graph visualization, wikilink navigation, and backlink panels on top of the wiki's markdown files.
 
 **To set it up:**
 
