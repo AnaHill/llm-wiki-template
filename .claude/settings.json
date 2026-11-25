@@ -1,5 +1,8 @@
 {
   "permissions": {
+    "deny": [
+      "Read(/.obsidian/**)"
+    ],
     "ask": [
       "Edit(raw/**)"
     ]
